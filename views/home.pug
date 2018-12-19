@@ -1,0 +1,36 @@
+extends layout.pug
+
+block titulo
+		title Título del Home
+
+block content
+	h1 Título: #{titulo}
+	p= parrafo
+	- var clases = ['clase1', 'clase2', 'clase3']
+	div.menu
+		a(href="http://google.com", class="enlace") Google
+		a.enlace(href="http://www.marca.com") Marca.com
+		a(href="http://www.terra.es", class=clases)
+	div
+		//- - let amigos = 10
+		case amigos
+			when 0
+				p No tienes amigos, pobrecito...
+			when 1
+				p Tienes un amigo, cuídalo, pobrecito...
+			default
+				p Tienes #{amigos} amigos. No mientas, pobrecito...
+	div
+		ul
+			-for(let i = 0; i<4; i++)
+				li Elemento #{i+1}
+	if showFooter
+		footer
+			p Copyright @ Mariano Moreno 2019
+	else
+		footer
+			p Footer sin gracia
+
+		//- Comentario solo en pug
+
+		// Comentario sale en html
